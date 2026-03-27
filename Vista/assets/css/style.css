@@ -1,0 +1,226 @@
+﻿/* Estilos generales del sitio (base propia + apoyo de Bootstrap). */
+
+:root {
+  --hotel-primary: #0e5e6f;
+  --hotel-primary-dark: #0a4a58;
+  --hotel-accent: #d6a77a;
+  --hotel-bg: #f6f4ef;
+  --hotel-surface: #ffffff;
+  --hotel-text: #1f2933;
+  --hotel-muted: #5b6871;
+  --hotel-border: #e6e2d8;
+  --hotel-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --hotel-radius: 14px;
+  --hotel-transition: 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body {
+  --bs-primary: var(--hotel-primary);
+  --bs-primary-rgb: 14, 94, 111;
+  --bs-body-bg: var(--hotel-bg);
+  --bs-body-color: var(--hotel-text);
+  --bs-secondary-color: var(--hotel-muted);
+  --bs-border-color: var(--hotel-border);
+  font-family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-title {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  line-height: 1.2;
+}
+
+.brand-title {
+  color: var(--hotel-primary);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.25px;
+}
+
+.nav-link.active {
+  color: var(--hotel-primary) !important;
+  font-weight: 700;
+}
+
+.hero-main {
+  min-height: 74vh;
+  position: relative;
+  display: grid;
+  align-items: center;
+  background-image: var(--hero-image);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(10, 27, 31, 0.8), rgba(14, 94, 111, 0.25));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-kicker {
+  color: #d8c3a7;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.hero-main h1,
+.hero-main p {
+  color: #ffffff;
+}
+
+.info-card,
+.hotel-card,
+.service-card,
+.contact-card,
+.form-card {
+  background-color: var(--hotel-surface);
+  border: 1px solid var(--hotel-border);
+  border-radius: var(--hotel-radius);
+  box-shadow: var(--hotel-shadow);
+}
+
+.info-card {
+  padding: 1rem 1.1rem;
+  height: 100%;
+}
+
+.hotel-card,
+.service-card,
+.contact-card,
+.form-card {
+  padding: 1.25rem;
+}
+
+.card-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.section-soft {
+  background: linear-gradient(180deg, rgba(214, 167, 122, 0.08), rgba(214, 167, 122, 0));
+}
+
+.hero-inner {
+  background: radial-gradient(circle at 25% 10%, rgba(14, 94, 111, 0.15), transparent 40%),
+    linear-gradient(180deg, #ffffff, #f8f6f1);
+  border-bottom: 1px solid var(--hotel-border);
+}
+
+.chip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip-list li,
+.chip {
+  font-size: 0.88rem;
+  background-color: #eef4f6;
+  color: #24434d;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+}
+
+.map-wrap {
+  border-radius: var(--hotel-radius);
+  overflow: hidden;
+  box-shadow: var(--hotel-shadow);
+}
+
+.site-footer {
+  background: #11252b;
+  color: #d4dde1;
+}
+
+.site-footer a {
+  color: #d4dde1;
+  text-decoration: none;
+  transition: color var(--hotel-transition);
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+}
+
+.footer-credit {
+  background: #0a171b;
+  color: #b5c5cb;
+  font-size: 0.92rem;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.52s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.52s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hero-main {
+    min-height: 62vh;
+    background-position: center;
+  }
+
+  .hotel-card,
+  .service-card,
+  .contact-card,
+  .form-card {
+    padding: 1.1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero-main {
+    min-height: 56vh;
+    background-position: center top;
+  }
+
+  .hero-main .btn {
+    width: 100%;
+  }
+
+  .info-card {
+    text-align: center;
+  }
+}
+
